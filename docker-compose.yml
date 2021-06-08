@@ -3,5 +3,7 @@ services:
   php:
     build: .
     working_dir: /local/hello-symfony-messenger
+    ports:
+      - ${PORT_HTTP:-8080}:80
     volumes:
       - .:/local/hello-symfony-messenger
