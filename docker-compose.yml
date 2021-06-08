@@ -30,15 +30,10 @@ services:
     environment:
       - SERVICES=lambda,sqs
       - DEFAULT_REGION=ap-northeast-1
-      # - DEBUG=${DEBUG- }
-      # - DATA_DIR=${DATA_DIR- }
       - LAMBDA_EXECUTOR=local
-      # - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
-      # - DOCKER_HOST=unix:///var/run/docker.sock
+      - DEBUG=1
     ports:
       - ${PORT_LOCALSTACK:-4566}:4566
-    # volumes:
-    #   - ${TMPDIR:-/tmp/localstack}:/tmp/localstack
 
 volumes:
   mysql_data:
