@@ -7,3 +7,16 @@ services:
       - ${PORT_HTTP:-8080}:80
     volumes:
       - .:/local/hello-symfony-messenger
+
+  mysql:
+    image: mysql:5.7.34
+    volumes:
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+    ports:
+      - ${PORT_MYSQL:-3306}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+volumes:
+  mysql_data:
