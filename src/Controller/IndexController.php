@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Object\RequestNotification;
+use App\Message\RequestNotification;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

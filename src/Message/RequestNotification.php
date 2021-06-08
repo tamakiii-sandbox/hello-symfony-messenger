@@ -1,5 +1,5 @@
 <?php
-namespace App\Object;
+namespace App\Message;
 
 class RequestNotification
 {

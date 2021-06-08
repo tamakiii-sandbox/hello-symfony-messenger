@@ -1,5 +1,5 @@
 <?php
-namespace App\Object;
+namespace App\Message;
 
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
