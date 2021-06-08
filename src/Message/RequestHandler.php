@@ -17,7 +17,7 @@ class RequestHandler implements MessageHandlerInterface
             throw new \RuntimeException(sprintf('Failed to write content: %s', $notification->getId()));
         }
 
-        if (!self::writeContent(array_merge($data, ['status' => 'done']))) {
+        if (!self::writeContent(array_merge($data, ['state' => 'done']))) {
             throw new \RuntimeException(sprintf('Failed to write content: %s', $notification->getId()));
         }
     }
@@ -28,8 +28,7 @@ class RequestHandler implements MessageHandlerInterface
         $filename = realpath(__DIR__ . "/../..") . "/var/result.{$id}.json";
         $data = json_encode($row, JSON_PRETTY_PRINT);
 
-        sleep(3);
-        // sleep(10);
+        sleep(10);
 
         return file_put_contents($filename, $data) !== false;
     }
