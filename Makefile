@@ -1,4 +1,4 @@
-.PHONY: help setup build server clean
+.PHONY: help setup build server consume clean
 
 DATABASE_USER := root
 DATABASE_PASSWORD := password
@@ -24,6 +24,9 @@ build: Dockerfile
 
 server:
 	symfony server:start --port=80
+
+consume:
+	symfony console messenger:consume -vv
 
 vendor:
 	composer install
