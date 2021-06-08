@@ -19,11 +19,11 @@ services:
       MYSQL_ROOT_PASSWORD: password
 
   rabbitmq:
-    image: rabbitmq:3.8.16
+    image: rabbitmq:3.8.16-management
     ports:
       - ${PORT_RABBITMQ_HTTP:-5672}:5672
       - ${PORT_RABBITMQ_HTTPS:-5671}:5671
-      - ${PORT_RABBITMQ_CONSOLE:-15672}:15672
+      - ${PORT_RABBITMQ_CONSOLE:-15671}:15671
 
 volumes:
   mysql_data:
