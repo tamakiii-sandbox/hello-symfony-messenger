@@ -6,6 +6,8 @@ RUN apt-get update && \
       curl \
       git \
       make \
+      zip \
+      unzip \
       && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
