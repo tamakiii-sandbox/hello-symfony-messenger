@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  php:
+    build: .
+    working_dir: /local/hello-symfony-messenger
+    ports:
+      - ${PORT_HTTP:-8080}:80
+    volumes:
+      - .:/local/hello-symfony-messenger
+
+  mysql:
+    image: mysql:5.7.34
+    volumes:
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+    ports:
+      - ${PORT_MYSQL:-3306}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+  rabbitmq:
+    image: rabbitmq:3.8.16-management
+    ports:
+      - ${PORT_RABBITMQ_HTTP:-5672}:5672
+      - ${PORT_RABBITMQ_HTTPS:-5671}:5671
+      - ${PORT_RABBITMQ_CONSOLE:-15671}:15671
+
+  localstack:
+    image: localstack/localstack:0.12.12
+    environment:
+      - SERVICES=lambda,sqs
+      - DEFAULT_REGION=ap-northeast-1
+      - LAMBDA_EXECUTOR=local
+      - DEBUG=1
+    ports:
+      - ${PORT_LOCALSTACK:-4566}:4566
+
+volumes:
+  mysql_data:
