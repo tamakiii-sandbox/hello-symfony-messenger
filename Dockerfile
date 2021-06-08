@@ -8,6 +8,8 @@ RUN apt-get update && \
       make \
       zip \
       unzip \
+      librabbitmq-dev \
+      libssh-dev \
       && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -20,6 +22,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 RUN wget https://get.symfony.com/cli/installer -O - | bash && \
 	  mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
-RUN docker-php-ext-install pdo_mysql
+RUN echo -ne '\n' | pecl install -f https://github.com/0x450x6c/php-amqp/raw/7323b3c9cc2bcb8343de9bb3c2f31f6efbc8894b/amqp-1.10.3.tgz && \
+    docker-php-ext-enable amqp && \
+    docker-php-ext-install pdo_mysql
 
 ENTRYPOINT ["make", "server"]
