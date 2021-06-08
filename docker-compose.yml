@@ -37,21 +37,6 @@ services:
       # - DOCKER_HOST=unix:///var/run/docker.sock
     ports:
       - ${PORT_LOCALSTACK:-4566}:4566
-      # - ${PORT_API_GATEWAY:-4567}:4567
-      # - ${PORT_KINESIS:-4568}:4568
-      # - ${PORT_DYNAMO_DB:-4569}:4569
-      # - ${PORT_DYNAMO_DB_STREAMS:-4570}:4570
-      # - ${PORT_ELASTICSEARCH:-4571}:4571
-      # - ${PORT_S3:-4572}:4572
-      # - ${PORT_FIREHOSE:-4573}:4573
-      # - ${PORT_LAMBDA:-4574}:4574
-      # - ${PORT_SNS:-4575}:4575
-      # - ${PORT_SQS:-4576}:4576
-      # - ${PORT_REDSHIFT:-4577}:4577
-      # - ${PORT_ELASTICSEARCH_SERVICE:-4578}:4578
-      # - ${PORT_SES:-4579}:4579
-      # - ${PORT_ROUTE53:-4580}:4580
-      # - ${PORT_CLOUD_FORMATION:-4581}:4581
     # volumes:
     #   - ${TMPDIR:-/tmp/localstack}:/tmp/localstack
 
